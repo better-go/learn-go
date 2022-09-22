@@ -30,6 +30,7 @@ tasks:
     cmds:
       - GOPROXY=https://goproxy.cn/,direct go install github.com/zeromicro/go-zero/tools/goctl@latest
       - goctl -v
+      - goctl env check -i -f --verbose
 
   run:api:
     cmds:
@@ -45,7 +46,7 @@ tasks:
 
   new:rpc:
     cmds:
-      - goctl rpc new greet-rpc
+      - goctl rpc new rpc
 
   build:docker:api:
     cmds:

@@ -40,6 +40,5 @@ goctl api new hello
 
 ```ruby
 
-goctl rpc new greet
-goctl rpc new hello-rpc
+goctl rpc new rpc
 ```
