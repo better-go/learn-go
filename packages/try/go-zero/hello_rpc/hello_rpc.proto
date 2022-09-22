@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package rpc;
-option go_package="./rpc";
+package hello_rpc;
+option go_package="./hello_rpc";
 
 message Request {
   string ping = 1;
@@ -11,6 +11,6 @@ message Response {
   string pong = 1;
 }
 
-service Rpc {
+service Hello_rpc {
   rpc Ping(Request) returns(Response);
 }

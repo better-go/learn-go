@@ -18,11 +18,25 @@ cd learn-go/
 # go mod tidy:
 task try:zero:tidy 
 
-# run:
+# run api:
 task try:zero:run:api
+
+# run rpc:
+task try:zero:run:rpc
 
 ```
 
+- api 验证：
+
+
+```ruby
+
+cd learn-go/
+
+# api test:
+task try:zero:api:test
+
+```
 
 ### api 示例：
 
@@ -42,3 +56,6 @@ goctl api new hello
 
 goctl rpc new rpc
 ```
+
+- 依赖服务发现机制， 默认基于 etcd 注册 / 发现服务。
+
