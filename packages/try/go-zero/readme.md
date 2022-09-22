@@ -7,6 +7,15 @@
 - https://go-zero.dev/cn/docs/goctl/zrpc
 - https://go-zero.dev/cn/docs/goctl/model
 
+> 目录结构设计：
+
+- https://go-zero.dev/cn/docs/advance/service-design
+
+> 参考示例：
+
+- https://go-zero.dev/cn/docs/eco/showcase
+- https://github.com/Mikaelemmmm/go-zero-looklook
+
 ## 示例服务：
 
 - run:
@@ -27,7 +36,6 @@ task try:zero:run:rpc
 ```
 
 - api 验证：
-
 
 ```ruby
 
