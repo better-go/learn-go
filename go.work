@@ -1,0 +1,7 @@
+go 1.18
+
+// workspace:
+use (
+	./packages/try/go-kratos
+	./packages/try/go-zero
+)

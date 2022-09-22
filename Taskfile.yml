@@ -1,0 +1,143 @@
+version: "3"
+
+#
+# sub namespace: https://taskfile.dev/#/usage?id=including-other-taskfiles
+#
+includes:
+  # way: global path
+  #   - https://github.com/better-sre/config
+  std:
+    taskfile: ~/.local/task/better-sre/config/Taskfile.yml # TODO: please create `~/.task/` first before use
+    dir: ~/.local/task/better-sre/config # global path
+    optional: true # safeguard, if not found, no error
+
+  try:zero:
+    taskfile: packages/try/go-zero/Taskfile.yml
+    dir: packages/try/go-zero/
+
+  try:kratos:
+    taskfile: packages/try/go-kratos/Taskfile.yml
+    dir: packages/try/go-kratos/
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+# env file:
+dotenv:
+  - .env
+
+################################################################################################
+
+tasks:
+  default:
+    cmds:
+      - echo "hello world"
+
+  init:
+    cmds:
+      - cp .env.local .env
+      - task: install
+      - task: install:pkg
+
+  install:
+    cmds:
+      - brew install cookiecutter
+      - brew install go-task/tap/go-task
+      - brew install protobuf
+      - go install github.com/go-kratos/kratos/cmd/kratos/v2@latest
+
+  install:pkg:
+    cmds:
+      - go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+      - go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+      - go install github.com/go-kratos/kratos/cmd/kratos/v2@latest
+      - go install github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2@latest
+      - go install github.com/go-kratos/kratos/cmd/protoc-gen-go-errors/v2@latest
+      - go install github.com/google/gnostic/cmd/protoc-gen-openapi@latest
+
+  ################################################################################
+
+  #
+  # 创建 monorepo + go-kratos:
+  #
+  new:mono:
+    cmds:
+      - cookiecutter https://github.com/better-go/cookiecutter-go.git --directory="mono-repo/go-kratos"
+
+  new:app:
+    cmds:
+      #      - cd ${NEW_APP_RELATIVE_PATH}; kratos new ${NEW_APP_NAME}
+      - cd ${NEW_APP_RELATIVE_PATH}; kratos new ${NEW_APP_NAME} -r https://github.com/better-go/kratos-layout.git -b app
+      - echo ${NEW_APP_RELATIVE_PATH}${NEW_APP_NAME}
+      - cd ${NEW_APP_RELATIVE_PATH}${NEW_APP_NAME}; rm -rf cmd/${NEW_APP_NAME};
+      - cd ${NEW_APP_RELATIVE_PATH}${NEW_APP_NAME}; task tidy
+      - cd ${NEW_APP_RELATIVE_PATH}${NEW_APP_NAME}; task proto:gen
+
+  ################################################################################
+
+  work:add:
+    cmds:
+      - go work use packages/try/go-zero
+
+  work:sync:
+    cmds:
+      - go work sync
+
+  api:test:rpc:
+    cmds:
+      - curl -i 'http://127.0.0.1:8000/helloworld/kratos'
+      - curl -i 'http://127.0.0.1:8001/helloworld/kratos'
+    ignore_error: true
+
+  api:test:
+    cmds:
+      - curl -i 'http://127.0.0.1:8001/helloworld/kratos'
+
+  open:docs:
+    cmds:
+      - open https://entgo.io/zh/docs/code-gen/
+
+  open:infra:
+    cmds:
+      - task std:docker:local:open:infra
+
+  up:infra:
+    cmds:
+      - task: std:docker:local:up:mysql
+      - task: std:docker:local:up:redis
+      - task: std:docker:local:up:consul:v3 # 服务发现/服务注册
+      - task: std:docker:local:up:jaeger # 链路追踪 # https://go-kratos.dev/docs/component/middleware/tracing
+  #      - task: std:docker:local:up:prometheus
+
+  ################################################################################
+
+  count:
+    cmds:
+      - tokei # 代码统计: https://github.com/XAMPPRocky/tokei
+
+  # 项目全局 + 批量生成:
+  proto:gen:all:
+    cmds:
+      - |
+        find ./app -iname "*.proto" -exec \
+          protoc --proto_path=. \
+            --proto_path=$(pwd)/pkg/x \
+            --go_out=paths=source_relative:. \
+            --go-http_out=paths=source_relative:. \
+            --go-grpc_out=paths=source_relative:. \
+            --validate_out=paths=source_relative,lang=go:. \
+            --openapi_out==paths=source_relative:. \
+            {} \;
+
+  push:
+    cmds:
+      - git push origin main --tags
+      - repo_url=`git remote -v | grep push | awk -F ":" '{print $2}' | awk -F ".git" '{print "https://github.com/"$1}'`; open $repo_url

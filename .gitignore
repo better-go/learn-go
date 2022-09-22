@@ -1,3 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Go template
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -12,4 +14,58 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
+
+################################################################################################################
+
+# macOS
+.DS_Store
+
+# OS General
+Thumbs.db
+
+# IDE: Goland
+.idea/
+
+# IDE: VS Code
+#.vscode/
+.history/
+
+bin/
+tmp/
+*.log
+*.pb*.go
+#*_gen.go
+
+# project
+*.cert
+*.key
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+
+# Develop tools
+*.swp
+
+# artifacts from pprof tooling
+*.prof
+
+# goreleaser artifacts
+dist/
+
+# env file:
+.env*
+!.env.local
+
+# TODO X: fix gen ent files:
+**/ent/*
+!**/ent/schema/
+!**/ent/generate.go
+
+
+
+
+# Added by cargo
+/target
+!**/src/bin/
