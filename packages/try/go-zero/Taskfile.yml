@@ -35,27 +35,35 @@ tasks:
   run:api:
     cmds:
       - |
-        cd hello; go run hello.go -f etc/hello-api.yaml
+        cd api; go run api.go -f etc/api-api.yaml
 
   run:rpc:
     cmds:
       - |
-        cd hello_rpc; go run hellorpc.go -f etc/hellorpc.yaml
+        cd inner/; go run inner.go -f etc/inner.yaml
 
   new:api:
     cmds:
-      - goctl api new hello
+      - goctl api new api
 
   new:api:docker:
     - cd hello; goctl docker -go hello.go
 
   new:rpc:
     cmds:
-      - goctl rpc new hello_rpc
+      - goctl rpc new inner
 
   build:docker:api:
     cmds:
       - docker build -t hello:v1 -f hello/Dockerfile .
+
+  gen:pb:
+    cmds:
+#      - cd hello_rpc/; goctl rpc protoc rpc.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
+      - cd hello_rpc/; goctl rpc protoc rpc.proto --go_out=. --go-grpc_out=. --zrpc_out=.
+#      - cd hello_rpc/; goctl rpc protoc hello_rpc.proto --go_out=. --go-grpc_out=. --zrpc_out=.
+
+
 
   tidy:
     cmds:

@@ -4,12 +4,12 @@ import (
 	"net/http"
 
 	"github.com/zeromicro/go-zero/rest/httpx"
-	"zero/hello/internal/logic"
-	"zero/hello/internal/svc"
-	"zero/hello/internal/types"
+	"zero/api/internal/logic"
+	"zero/api/internal/svc"
+	"zero/api/internal/types"
 )
 
-func HelloHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func ApiHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req types.Request
 		if err := httpx.Parse(r, &req); err != nil {
@@ -17,8 +17,8 @@ func HelloHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 			return
 		}
 
-		l := logic.NewHelloLogic(r.Context(), svcCtx)
-		resp, err := l.Hello(&req)
+		l := logic.NewApiLogic(r.Context(), svcCtx)
+		resp, err := l.Api(&req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {
