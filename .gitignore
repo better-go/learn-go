@@ -34,7 +34,7 @@ Thumbs.db
 bin/
 tmp/
 *.log
-*.pb*.go
+#*.pb*.go
 #*_gen.go
 
 # project
