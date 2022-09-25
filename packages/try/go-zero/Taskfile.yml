@@ -35,7 +35,7 @@ tasks:
   run:api:
     cmds:
       - |
-        cd api; go run api.go -f etc/api.yaml
+        cd api/; go run main.go -f etc/main.yaml
 
   run:rpc:
     cmds:
@@ -68,7 +68,7 @@ tasks:
   gen:api:
     cmds:
 #      - cd api; goctl api go --api api.api --dir . --style go_zero
-      - goctl api go --api "./proto/api/api.api" --dir="./api" --style go_zero
+      - goctl api go --api "./proto/api/main.api" --dir="./api" --style go_zero
 
   gen:model:
     cmds:

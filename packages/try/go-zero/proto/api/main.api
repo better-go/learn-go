@@ -7,7 +7,7 @@ type Response {
 }
 
 // todo x: 影响 etc 配置文件名称
-service api {
+service main {
 	@handler ApiHandler
 	get /from/:name (Request) returns (Response)
 	
