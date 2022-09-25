@@ -13,6 +13,35 @@ task try:zero:gen:pb
 
 ```
 
+## 目录结构说明：
+
+```ruby
+
+➤ lt -L 2
+ .
+├──  api           // api 服务， 基于 proto/api/*.api 自动生成的代码
+│  ├──  api.go
+│  ├──  etc
+│  └──  internal
+├──  go.mod
+├──  go.sum
+├──  proto          // 微服务定义部分， 包含各种服务定义源文件（api, rpc, sql)
+│  ├──  api         // api 定义
+│  ├──  model       // 基于 sql， 生成的 model CRUD 代码
+│  ├──  rpc         // rpc 服务定义
+│  └──  sql         // raw sql， 用于生成 model
+├──  readme.md
+├──  rpc            // rpc 服务， 基于 proto/rpc/*.proto 自动生成的代码
+│  ├──  etc
+│  ├──  internal
+│  ├──  main.go
+│  ├──  pb
+│  └──  service
+└──  Taskfile.yml   // 服务启动脚本
+
+
+```
+
 ## 示例服务：
 
 - run:
