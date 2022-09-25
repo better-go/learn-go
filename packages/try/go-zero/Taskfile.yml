@@ -58,10 +58,10 @@ tasks:
       - docker build -t hello:v1 -f hello/Dockerfile .
 
   # 更改proto文件， 可以方便生成业务框架代码
-  gen:pb:
+  gen:rpc:
     cmds:
       # - cd hello_rpc/; goctl rpc protoc rpc.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
-      - cd rpc/; goctl rpc protoc main.proto --go_out=. --go-grpc_out=. --zrpc_out=.
+      - cd rpc/; goctl rpc protoc main.proto --go_out=. --go-grpc_out=. --zrpc_out=. --style go_zero
 
   # ref: https://go-zero.dev/cn/docs/design/grammar
   gen:api:
