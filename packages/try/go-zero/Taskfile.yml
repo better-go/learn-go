@@ -61,12 +61,20 @@ tasks:
   gen:rpc:
     cmds:
       # - cd hello_rpc/; goctl rpc protoc rpc.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
-      - cd rpc/; goctl rpc protoc main.proto --go_out=. --go-grpc_out=. --zrpc_out=. --style go_zero
+#      - cd rpc/; goctl rpc protoc main.proto --go_out=. --go-grpc_out=. --zrpc_out=. --style go_zero
+      - goctl rpc protoc "./proto/rpc/main.proto" --go_out=./rpc --go-grpc_out=./rpc --zrpc_out=./rpc --style go_zero
 
   # ref: https://go-zero.dev/cn/docs/design/grammar
   gen:api:
     cmds:
-      - cd api; goctl api go --api api.api --dir . --style go_zero
+#      - cd api; goctl api go --api api.api --dir . --style go_zero
+      - goctl api go --api "./proto/api/api.api" --dir="./api" --style go_zero
+
+  gen:model:
+    cmds:
+#      - goctl model mysql ddl -src="./*.sql" -dir="./sql/model" -c --style go_zero
+      - cd proto; goctl model mysql ddl -src="./sql/*.sql" -dir="./model" -c --style go_zero
+
 
   tidy:
     cmds:
