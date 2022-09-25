@@ -6,7 +6,12 @@ type Response {
 	Message string `json:"message"`
 }
 
-service api-api {
+// todo x: 影响 etc 配置文件名称
+service api {
 	@handler ApiHandler
-	get /from/:name(Request) returns (Response)
+	get /from/:name (Request) returns (Response)
+	
+	// todo x: 新增 API 定义
+	@handler RootHandler
+	get / returns (Response)
 }

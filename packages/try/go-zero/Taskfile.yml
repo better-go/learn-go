@@ -35,7 +35,7 @@ tasks:
   run:api:
     cmds:
       - |
-        cd api; go run api.go -f etc/api-api.yaml
+        cd api; go run api.go -f etc/api.yaml
 
   run:rpc:
     cmds:
@@ -62,6 +62,11 @@ tasks:
     cmds:
       # - cd hello_rpc/; goctl rpc protoc rpc.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
       - cd rpc/; goctl rpc protoc main.proto --go_out=. --go-grpc_out=. --zrpc_out=.
+
+  # ref: https://go-zero.dev/cn/docs/design/grammar
+  gen:api:
+    cmds:
+      - cd api; goctl api go --api api.api --dir . --style go_zero
 
   tidy:
     cmds:
