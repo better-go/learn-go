@@ -12,13 +12,17 @@ includes:
     optional: true # safeguard, if not found, no error
 
   try:zero:
-    taskfile: packages/try/go-zero/Taskfile.yml
+    taskfile: packages/try/go-zero/
     dir: packages/try/go-zero/
 
   try:kratos:
-    taskfile: packages/try/go-kratos/Taskfile.yml
+    taskfile: packages/try/go-kratos/
     dir: packages/try/go-kratos/
 
+  try:fiber:
+    taskfile: packages/try/fiber/
+    dir: packages/try/fiber/
+    optional: true
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
