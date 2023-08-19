@@ -4,18 +4,30 @@
 
 > related:
 
+- ✅ https://github.com/better-py/learn-py
 - ✅ https://github.com/better-rs/learn-rs
 - ✅ https://github.com/better-dart/learn-dart
 - ✅ https://github.com/better-zig/learn-zig
 
-## packages:
+## Projects：
 
-- ✅ [packages/try/go-zero](packages/try/go-zero)
-    - go-zero 测试 demo， 功能验证
-- ✅ [packages/try/go-kratos](packages/try/go-kratos)
-    - go-kratos 测试 demo， 功能验证
+- ✅️ monorepo: [packages](./packages/)
 
-## structures:
+[//]: # (y23m01p01-xxx 项目编号规则)
+
+| Project Name                                        | Desc                    | Rank |  
+|:----------------------------------------------------|:------------------------|:-----| 
+| ✅️ [learn-go](./packages/go101)                     | go 基础示例                 | ⭐️⭐️ |
+| ✅️ [packages/try/go-zero](packages/try/go-zero)     | go-zero 测试 demo， 功能验证   | xxx  |
+| ✅️ [packages/try/go-kratos](packages/try/go-kratos) | go-kratos 测试 demo， 功能验证 | xxx  |
+| ✅️ [xxx]()                                          | xxx                     | xxx  |
+| ✅️ [xxx]()                                          | xxx                     | xxx  |
+| ✅️ [xxx]()                                          | xxx                     | xxx  |
+| ✅️ [xxx]()                                          | xxx                     | xxx  |
+| ✅️ [xxx]()                                          | xxx                     | xxx  |
+
+
+## Structures:
 
 ```ruby
 
@@ -52,7 +64,7 @@
 
 ```
 
-## requirements:
+## Requirements:
 
 - ✅ go, 使用 workspace 模式
 - ✅ go-task
@@ -60,5 +72,7 @@
 ```ruby
 ➤ go version
 go version go1.18 darwin/arm64
+
+go version go1.20.3 darwin/arm64
 
 ```

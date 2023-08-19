@@ -137,6 +137,31 @@ tasks:
             --openapi_out==paths=source_relative:. \
             {} \;
 
+  ################################################################################
+
+  pull:
+    cmds:
+      - git config pull.rebase false
+      - git pull origin main
+
+  fetch:
+    cmds:
+      - git fetch
+      - git rebase
+      - git merge origin/main
+
+  quick:
+    cmds:
+      - task: commit
+  #      - task: pull
+  #      - task: push
+
+  commit:
+    cmds:
+      - git add .
+      - |
+        git commit -m 'chore: update' --no-verify
+
   push:
     cmds:
       - git push origin main --tags
