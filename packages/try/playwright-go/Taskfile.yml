@@ -1,0 +1,42 @@
+version: "3"
+
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+
+
+# env file:
+#dotenv:
+#  - .env
+
+################################################################################################
+
+tasks:
+
+  run:
+    aliases: [ "r" ]
+    cmds:
+      - go run main.go
+
+  r2:
+    aliases: [ "run2" ]
+    cmds:
+      - go run script/main.go
+
+
+  install:
+    aliases: [ "i" ] # install deps
+    cmds:
+      - go run github.com/playwright-community/playwright-go/cmd/playwright@latest install --with-deps
+
+  get:
+    cmds:
+      - go get -u github.com/playwright-community/playwright-go
+
+  tidy:
+    cmds:
+      - go mod tidy -v

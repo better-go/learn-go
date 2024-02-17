@@ -19,6 +19,11 @@ includes:
     taskfile: packages/try/go-kratos/
     dir: packages/try/go-kratos/
 
+  t:p:
+    aliases: [ "try:playwright" ]
+    taskfile: packages/try/playwright-go
+    dir: packages/try/playwright-go
+
   try:fiber:
     taskfile: packages/try/fiber/
     dir: packages/try/fiber/

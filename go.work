@@ -5,4 +5,5 @@ use (
 	./packages/try/fiber
 	./packages/try/go-kratos
 	./packages/try/go-zero
+	packages/try/playwright-go
 )
