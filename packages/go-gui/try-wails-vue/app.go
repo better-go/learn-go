@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/labstack/gommon/log"
+
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
@@ -37,7 +37,7 @@ func (b *App) beforeClose(ctx context.Context) (prevent bool) {
 		DefaultButton: "Cancel",
 	})
 
-	log.Infof("Quit?: %v", dialog)
+	runtime.LogDebugf(ctx, "Quit Answer: %v", dialog)
 
 	if err != nil {
 		return false
