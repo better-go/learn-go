@@ -21,6 +21,11 @@ func NewApp() *App {
 // so we can call the runtime methods
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
+
+	// set the window center
+	runtime.WindowCenter(ctx)
+	runtime.LogDebug(ctx, "Set window center")
+
 }
 
 // Greet returns a greeting for the given name
