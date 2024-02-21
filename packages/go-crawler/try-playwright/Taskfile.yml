@@ -25,7 +25,8 @@ tasks:
   r2:
     aliases: [ "run2" ]
     cmds:
-      - EMAIL="your_email" PASSWORD="your_password" go run run2/main.go
+#      - EMAIL="your_email" PASSWORD="your_password" go run run2/main.go
+      - go run run2/main.go
 
   r1:
     aliases: [ "run1" ]
