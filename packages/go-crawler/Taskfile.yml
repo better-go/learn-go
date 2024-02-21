@@ -1,0 +1,47 @@
+version: "3"
+
+includes:
+  playwright:
+    aliases: [ "p", "pl" ]
+    taskfile: try-playwright/
+    dir: try-playwright
+
+  pyside:
+    aliases: [ "ps", "p" ]
+    taskfile: try-pyside/
+    dir: try-pyside/
+    optional: true
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  setup:
+    cmds:
+      - go install github.com/wailsapp/wails/v2/cmd/wails@latest
+      - wails
+      - wails doctor
+
+  info:
+    aliases: [ "debug", "doctor" ]
+    cmds:
+      - wails doctor
+
+  run:
+    aliases: [ "r" ]
+    cmds:
+      - go mod init try-playwright
+      - go work use ./try-playwright
+    dir: ./try-playwright
+
+

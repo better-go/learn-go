@@ -2,10 +2,10 @@ go 1.18
 
 // workspace:
 use (
+	./packages/go-crawler/try-playwright
 	./packages/go-gui/try-wails-vue
 	./packages/go-gui/try-wails-vue-quasar
 	./packages/try/fiber
 	./packages/try/go-kratos
 	./packages/try/go-zero
-	packages/try/playwright-go
 )

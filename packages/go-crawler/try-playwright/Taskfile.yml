@@ -25,8 +25,12 @@ tasks:
   r2:
     aliases: [ "run2" ]
     cmds:
-      - go run script/main.go
+      - EMAIL="your_email" PASSWORD="your_password" go run run2/main.go
 
+  r1:
+    aliases: [ "run1" ]
+    cmds:
+      - go run script/main.go
 
   install:
     aliases: [ "i" ] # install deps
@@ -36,6 +40,8 @@ tasks:
   get:
     cmds:
       - go get -u github.com/playwright-community/playwright-go
+      - go get -u github.com/sirupsen/logrus
+
 
   tidy:
     cmds:

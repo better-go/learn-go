@@ -15,6 +15,11 @@ includes:
     taskfile: packages/go-gui/
     dir: packages/go-gui
 
+  crawler:
+    aliases: [ "cr" ]
+    taskfile: packages/go-crawler/
+    dir: packages/go-crawler
+
   try:zero:
     taskfile: packages/try/go-zero/
     dir: packages/try/go-zero/
@@ -22,11 +27,6 @@ includes:
   try:kratos:
     taskfile: packages/try/go-kratos/
     dir: packages/try/go-kratos/
-
-  t:p:
-    aliases: [ "try:playwright" ]
-    taskfile: packages/try/playwright-go
-    dir: packages/try/playwright-go
 
   try:fiber:
     taskfile: packages/try/fiber/
@@ -167,7 +167,7 @@ tasks:
     aliases: [ "q" ]
     cmds:
       - task: commit
-  #      - task: pull
+      #      - task: pull
       - task: push
 
   commit:

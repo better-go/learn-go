@@ -2,10 +2,17 @@ package main
 
 import (
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"log"
+	"os"
 
 	"github.com/playwright-community/playwright-go"
 )
+
+func init() {
+	logrus.SetLevel(logrus.DebugLevel)
+	logrus.SetOutput(os.Stdout)
+}
 
 func main() {
 	pw, err := playwright.Run()
