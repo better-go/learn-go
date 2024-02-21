@@ -30,10 +30,11 @@ func (a *App) Greet(name string) string {
 
 func (b *App) beforeClose(ctx context.Context) (prevent bool) {
 	dialog, err := runtime.MessageDialog(ctx, runtime.MessageDialogOptions{
-		Type:    runtime.QuestionDialog,
-		Title:   "Quit?",
-		Message: "Are you sure you want to quit?",
-		Buttons: []string{"OK", "Cancel"}, // todo x: double check
+		Type:          runtime.QuestionDialog,
+		Title:         "Quit?",
+		Message:       "Are you sure you want to quit?",
+		Buttons:       []string{"OK", "Cancel"}, // todo x: double check
+		DefaultButton: "Cancel",
 	})
 
 	log.Infof("dialog: %v", dialog)
