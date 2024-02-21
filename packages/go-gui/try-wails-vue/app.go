@@ -37,7 +37,7 @@ func (b *App) beforeClose(ctx context.Context) (prevent bool) {
 		DefaultButton: "Cancel",
 	})
 
-	log.Infof("dialog: %v", dialog)
+	log.Infof("Quit?: %v", dialog)
 
 	if err != nil {
 		return false
