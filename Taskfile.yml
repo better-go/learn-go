@@ -160,12 +160,14 @@ tasks:
       - git merge origin/main
 
   quick:
+    aliases: [ "q" ]
     cmds:
       - task: commit
   #      - task: pull
   #      - task: push
 
   commit:
+    aliases: [ "c" ]
     cmds:
       - git add .
       - |

@@ -15,16 +15,16 @@
 
 [//]: # (y23m01p01-xxx 项目编号规则)
 
-| Project Name                                        | Desc                    | Rank |  
-|:----------------------------------------------------|:------------------------|:-----| 
-| ✅️ [learn-go](./packages/go101)                     | go 基础示例                 | ⭐️⭐️ |
-| ✅️ [packages/try/go-zero](packages/try/go-zero)     | go-zero 测试 demo， 功能验证   | xxx  |
-| ✅️ [packages/try/go-kratos](packages/try/go-kratos) | go-kratos 测试 demo， 功能验证 | xxx  |
-| ✅️ [xxx]()                                          | xxx                     | xxx  |
-| ✅️ [xxx]()                                          | xxx                     | xxx  |
-| ✅️ [xxx]()                                          | xxx                     | xxx  |
-| ✅️ [xxx]()                                          | xxx                     | xxx  |
-| ✅️ [xxx]()                                          | xxx                     | xxx  |
+| Project Name                           | Desc                    | Rank |  
+|:---------------------------------------|:------------------------|:-----| 
+| ✅️ [go-101](./packages/go-101)         | go 基础示例                 | ⭐️⭐️ |
+| ✅️ [go-zero](packages/try/go-zero)     | go-zero 测试 demo， 功能验证   | xxx  |
+| ✅️ [go-kratos](packages/try/go-kratos) | go-kratos 测试 demo， 功能验证 | xxx  |
+| ✅️ [xxx]()                             | xxx                     | xxx  |
+| ✅️ [xxx]()                             | xxx                     | xxx  |
+| ✅️ [xxx]()                             | xxx                     | xxx  |
+| ✅️ [xxx]()                             | xxx                     | xxx  |
+| ✅️ [xxx]()                             | xxx                     | xxx  |
 
 
 ## Structures:
