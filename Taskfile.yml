@@ -11,6 +11,10 @@ includes:
     dir: ~/.local/task/better-sre/config # global path
     optional: true # safeguard, if not found, no error
 
+  gui:
+    taskfile: packages/go-gui/
+    dir: packages/go-gui
+
   try:zero:
     taskfile: packages/try/go-zero/
     dir: packages/try/go-zero/

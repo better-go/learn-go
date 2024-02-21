@@ -2,6 +2,7 @@ go 1.18
 
 // workspace:
 use (
+	./packages/go-gui/try-vue
 	./packages/try/fiber
 	./packages/try/go-kratos
 	./packages/try/go-zero
