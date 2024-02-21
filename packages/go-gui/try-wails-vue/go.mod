@@ -1,4 +1,4 @@
-module try-vue
+module try-wails-vue
 
 go 1.18
 

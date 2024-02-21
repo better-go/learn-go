@@ -42,22 +42,22 @@ tasks:
   new:vue:
     aliases: [ "nv" ]
     cmds:
-      - wails init -n try-vue -t vue-ts
+      - wails init -n try-wails-vue -t vue-ts
 
   go:work:
     cmds:
-      - go work use ./try-vue
+      - go work use ./try-wails-vue
 
   run:vue:
     aliases: [ "rv" ]
     cmds:
       - wails dev
-    dir: try-vue/
+    dir: try-wails-vue/
 
   build:vue:
     aliases: [ "bv" ]
     cmds:
       #      - go work use .
       - wails build
-    dir: try-vue/
+    dir: try-wails-vue/
 
