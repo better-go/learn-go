@@ -72,3 +72,9 @@ tasks:
       - wails build
     dir: try-wails-vue/
 
+
+  wails:
+    cmds:
+      - wails {{.CLI.ARGS}}
+      - wails generate module
+    dir: try-wails-vue/
