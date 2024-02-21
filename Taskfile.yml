@@ -168,7 +168,7 @@ tasks:
     cmds:
       - task: commit
   #      - task: pull
-  #      - task: push
+      - task: push
 
   commit:
     aliases: [ "c" ]
@@ -178,6 +178,7 @@ tasks:
         git commit -m 'chore: update' --no-verify
 
   push:
+    aliases: [ "p" ]
     cmds:
       - git push origin main --tags
       - repo_url=`git remote -v | grep push | awk -F ":" '{print $2}' | awk -F ".git" '{print "https://github.com/"$1}'`; open $repo_url
