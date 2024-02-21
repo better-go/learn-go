@@ -24,7 +24,7 @@ func main() {
 			Assets: assets,
 		},
 		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
-		LogLevel:         logger.DEBUG,
+		LogLevel:         logger.WARNING, //logger.DEBUG, // todo x: under dev mode
 		OnStartup:        app.startup,
 		OnBeforeClose:    app.beforeClose, // todo x: double check
 		Bind: []interface{}{
