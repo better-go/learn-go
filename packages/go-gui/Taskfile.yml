@@ -38,6 +38,16 @@ tasks:
     cmds:
       - wails doctor
 
+  run:
+    aliases: [ "r" ]
+    cmds:
+      - wails dev
+    dir: ./try-wails-vue-quasar
+
+  new:
+    aliases: [ "n" ]
+    cmds:
+      - wails init -n "try-wails-vue-quasar" -t https://github.com/sgosiaco/wails-template-quasar-ts
 
   new:vue:
     aliases: [ "nv" ]
@@ -47,6 +57,7 @@ tasks:
   go:work:
     cmds:
       - go work use ./try-wails-vue
+      - go work use ./try-wails-vue-quasar
 
   run:vue:
     aliases: [ "rv" ]
