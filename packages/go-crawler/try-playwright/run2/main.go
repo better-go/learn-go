@@ -80,7 +80,18 @@ func main() {
 		log.Fatal(err)
 	}
 
-	time.Sleep(10 * time.Second)
+	// get cookies
+	cookies, err := page.Context().Cookies()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// for range cookies
+	for _, cookie := range cookies {
+		fmt.Printf("cookie: %v\n", cookie)
+	}
+
+	time.Sleep(50 * time.Second)
 
 	// 等待登录完成
 	//page.WaitForNavigation()
