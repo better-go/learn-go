@@ -22,6 +22,11 @@ tasks:
     cmds:
       - go run main.go
 
+  r3:
+    aliases: [ "run3" ]
+    cmds:
+      - go run run3/main.go
+
   r2:
     aliases: [ "run2" ]
     cmds:
@@ -42,6 +47,8 @@ tasks:
     cmds:
       - go get -u github.com/playwright-community/playwright-go
       - go get -u github.com/sirupsen/logrus
+      - go get -u github.com/gocolly/colly/v2
+      - go get -u github.com/carlmjohnson/requests
 
 
   tidy:
