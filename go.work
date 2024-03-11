@@ -4,6 +4,7 @@ go 1.22.1
 use (
 	./packages/go-crawler/try-playwright
 	./packages/go-crypto/try-binance
+	./packages/go-gui/try-go-echart
 	./packages/go-gui/try-wails-vue
 	./packages/go-gui/try-wails-vue-quasar
 	./packages/try/fiber

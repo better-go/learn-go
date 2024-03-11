@@ -16,28 +16,11 @@ env:
 ################################################################################################
 
 tasks:
-
   run:
     aliases: [ "r" ]
     cmds:
       - go mod tidy -v
       - go run main.go
-
-  r3:
-    aliases: [ "run3" ]
-    cmds:
-      - go run run3/main.go
-
-  r2:
-    aliases: [ "run2" ]
-    cmds:
-#      - EMAIL="your_email" PASSWORD="your_password" go run run2/main.go
-      - go run run2/main.go
-
-  r1:
-    aliases: [ "run1" ]
-    cmds:
-      - go run script/main.go
 
   install:
     aliases: [ "i" ] # install deps
@@ -46,13 +29,12 @@ tasks:
 
   get:
     cmds:
-      - go get -u github.com/sirupsen/logrus
-      - go get -u github.com/adshao/go-binance/v2
       - go get -u "github.com/k0kubun/pp/v3"
+      - go get -u github.com/go-echarts/go-echarts/v2/...
 
   init:
     cmds:
-      - go mod init try-binance
+      - go mod init try-go-echart
 
   work:
     cmds:

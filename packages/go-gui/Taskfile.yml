@@ -1,17 +1,12 @@
 version: "3"
 
 includes:
-  flet:
-    aliases: [ "f", "fl" ]
-    taskfile: try-flet/
-    dir: try-flet/
-    optional: true
+  chart:
+    aliases: [ "c", "ch" ]
+    taskfile: try-go-echart/
+    dir: try-go-echart/
 
-  pyside:
-    aliases: [ "ps", "p" ]
-    taskfile: try-pyside/
-    dir: try-pyside/
-    optional: true
+
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
