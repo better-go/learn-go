@@ -47,6 +47,7 @@ tasks:
     cmds:
       - go get -u github.com/sirupsen/logrus
       - go get -u github.com/adshao/go-binance/v2
+      - go get -u "github.com/k0kubun/pp/v3"
 
   init:
     cmds:
