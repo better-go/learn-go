@@ -20,6 +20,12 @@ includes:
     taskfile: packages/go-crawler/
     dir: packages/go-crawler
 
+  crypto:
+    aliases: [ "cry", "cp" ]
+    taskfile: packages/go-crypto/
+    dir: packages/go-crypto
+
+
   try:zero:
     taskfile: packages/try/go-zero/
     dir: packages/try/go-zero/

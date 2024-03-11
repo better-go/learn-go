@@ -1,0 +1,27 @@
+version: "3"
+
+includes:
+  binance:
+    aliases: [ "bn" ]
+    taskfile: try-binance/
+    dir: try-binance/
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  run:
+    aliases: [ "r" ]
+    cmds:
+      - go run main.go
