@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/playwright-community/playwright-go"
 	"github.com/sirupsen/logrus"
-	"io"
 	"log"
 	"net/http"
 	"os"
@@ -117,6 +116,8 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+
+	// cookies
 	for _, cookie := range cookies {
 		req.AddCookie(&http.Cookie{
 			Name:  cookie.Name,
@@ -126,20 +127,21 @@ func main() {
 
 	//resp
 	resp, err := client.Do(req)
+	log.Printf("http resp: %v", resp)
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
 
 	// 读取响应体
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	//body, err := io.ReadAll(resp.Body)
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
 
 	// 打印响应体
-	fmt.Println(string(body))
+	//fmt.Println(string(body))
 
 	// 读取响应体
 	// 解析 JSON 响应
