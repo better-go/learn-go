@@ -38,8 +38,32 @@ tasks:
     cmds:
       - go run script/main.go
 
-  install:
-    aliases: [ "i" ] # install deps
+  i:
+    cmds:
+      # - go install github.com/goreleaser/goreleaser@latest
+      - brew install goreleaser
+  init:
+    cmds:
+      - goreleaser init
+
+  init2:
+    cmds:
+      - goreleaser init
+    dir: run2/
+
+  rel2:
+    cmds:
+      - goreleaser release --skip=publish --snapshot
+    dir: run2/
+
+  rel:
+    cmds:
+      - goreleaser release --skip=publish --snapshot
+
+
+  # ref: https://playwright.dev/docs/install
+  install:all:
+    aliases: [ "ia" ] # install deps
     cmds:
       - go run github.com/playwright-community/playwright-go/cmd/playwright@latest install --with-deps
 
