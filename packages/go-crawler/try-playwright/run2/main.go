@@ -143,6 +143,82 @@ func main() {
 	// 读取响应体
 	// 解析 JSON 响应
 
+	// 定位到目标预约, 点击 Continue 按钮, 进行日期改签
+	// 定位到 Continue button, click it
+	//<a class="button primary small" href="/en-ca/niv/schedule/530xxxxx/continue_actions">Continue</a>
+	btnContinueUrl := fmt.Sprintf("/en-ca/niv/schedule/%s/continue_actions", scheduleID)
+	btnContinue := fmt.Sprintf("//a[@class='button primary small'] [@href='%s']", btnContinueUrl)
+	log.Printf("btnContinue: %s\n", btnContinue)
+	_ = page.Locator(btnContinue).Click()
+
+	// 下一页, 改签, 跳转到城市+日期选择页面
+	// <h5>
+	//            <span class="fas fa-calendar-minus fa-lg fa-fw"></span>
+	//            Reschedule Appointment
+	//          </h5>
+	// <a class="accordion-title" aria-controls="2z6g8s-accordion" role="tab" id="2z6g8s-accordion-label" aria-expanded="true" aria-selected="true">
+	//          <h5>
+	//            <span class="fas fa-calendar-minus fa-lg fa-fw"></span>
+	//            Reschedule Appointment
+	//          </h5>
+	//        </a>
+
+	// <h5>
+	//            <span class="fas fa-calendar-minus fa-lg fa-fw"></span>
+	//            Reschedule Appointment
+	//          </h5>
+
+	//_ = page.Locator(":has-text('Reschedule Appointment')").Click()
+	//_ = page.GetByText("Reschedule Appointment").Click()
+	//_ = page.Locator("//a[contains(., 'Reschedule Appointment')]").Click()
+	//_ = page.Locator("//section[@id='forms").GetByRole("listitem").Filter(
+	//	playwright.LocatorFilterOptions{HasText: "Reschedule Appointment"}).Click()
+
+	// <a class="accordion-title" aria-controls="7hbgqy-accordion" role="tab" id="7hbgqy-accordion-label" aria-expanded="true" aria-selected="true">
+	//          <h5>
+	//            <span class="fas fa-calendar-minus fa-lg fa-fw"></span>
+	//            Reschedule Appointment
+	//          </h5>
+	//        </a>
+
+	// 展开待点击的按钮
+	// <span class="fas fa-calendar-minus fa-lg fa-fw"></span>
+	secRes := page.Locator("//span[@class='fas fa-calendar-minus fa-lg fa-fw']")
+	_ = secRes.Click()
+
+	p, _ := secRes.Page()
+	log.Printf("p: %v\n", p)
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// 点击 Reschedule Appointment
+	// <a class="button small primary small-only-expanded" href="/en-ca/niv/schedule/53081715/appointment">Reschedule Appointment</a>
+	btnRescheduleUrl := fmt.Sprintf("/en-ca/niv/schedule/%s/appointment", scheduleID)
+	btnReschedule := fmt.Sprintf("//a[@class='button small primary small-only-expanded'] [@href='%s']", btnRescheduleUrl)
+	log.Printf("btnReschedule: %s\n", btnReschedule)
+	_ = page.Locator(btnReschedule, playwright.PageLocatorOptions{HasText: "Reschedule Appointment"}).Click()
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// 地区+时间选项查看
+	// <select name="appointments[consulate_appointment][facility_id]" id="appointments_consulate_appointment_facility_id" class="required"><option value="" label=" "></option>
+	//<option data-collects-biometrics="false" value="89">Calgary</option>
+	//<option data-collects-biometrics="false" value="90">Halifax</option>
+	//<option data-collects-biometrics="false" value="91">Montreal</option>
+	//<option data-collects-biometrics="false" value="92">Ottawa</option>
+	//<option data-collects-biometrics="false" value="93">Quebec City</option>
+	//<option data-collects-biometrics="false" value="94">Toronto</option>
+	//<option data-collects-biometrics="false" selected="selected" value="95">Vancouver</option></select>
+
+	locationIDs := []string{"89", "90", "91", "92", "93", "94", "95"}
+
+	for _, id := range locationIDs {
+		_ = page.Locator(fmt.Sprintf("//select[@id='appointments_consulate_appointment_facility_id'] [@value='%s']", id)).Click()
+		log.Printf("location id: %s\n", id)
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////
+
 	time.Sleep(150 * time.Second)
 
 	// 等待登录完成
