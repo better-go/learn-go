@@ -42,6 +42,7 @@ func main() {
 	browser, _ := pw.Chromium.Launch(
 		playwright.BrowserTypeLaunchOptions{
 			Headless: playwright.Bool(false),
+			Args:     []string{"--start-maximized"}, // fullscreen
 		})
 	context, _ := browser.NewContext()
 	page, _ := context.NewPage()
@@ -213,8 +214,14 @@ func main() {
 	locationIDs := []string{"89", "90", "91", "92", "93", "94", "95"}
 
 	for _, id := range locationIDs {
-		_ = page.Locator(fmt.Sprintf("//select[@id='appointments_consulate_appointment_facility_id'] [@value='%s']", id)).Click()
-		log.Printf("location id: %s\n", id)
+
+		elSelect := page.Locator("//select[@id='appointments_consulate_appointment_facility_id']")
+		_, _ = elSelect.SelectOption(playwright.SelectOptionValues{Values: &[]string{id}})
+		_ = elSelect.Click()
+		time.Sleep(3 * time.Second)
+
+		// fill select option
+		log.Printf("location id: %s, waiting 3 seconds, then click next option\n", id)
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////
