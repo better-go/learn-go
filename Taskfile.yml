@@ -175,6 +175,7 @@ tasks:
       - task: commit
       #      - task: pull
       - task: push
+    ignore_error: true
 
   commit:
     aliases: [ "c" ]
@@ -182,6 +183,7 @@ tasks:
       - git add .
       - |
         git commit -m 'chore: update' --no-verify
+    ignore_error: true
 
   push:
     aliases: [ "p" ]
