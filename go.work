@@ -1,7 +1,8 @@
-go 1.22.1
+go 1.22.5
 
 // workspace:
 use (
+	./packages/go-automation/try-guia2
 	./packages/go-crawler/try-playwright
 	./packages/go-crypto/try-binance
 	./packages/go-gui/try-go-echart
