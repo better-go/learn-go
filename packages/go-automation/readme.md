@@ -29,6 +29,8 @@
 
 > Android UIAutomator2
 
+- https://github.com/fantonglang/go-mobile-automation
+    - 示例: https://github.com/fantonglang/go-mobile-automation-examples
 - https://github.com/electricbubble/guia2
 - https://github.com/electricbubble/guia2-ext-opencv
 - https://github.com/electricbubble/gadb
@@ -53,6 +55,11 @@
 - https://github.com/AirtestProject/Airtest
 - https://github.com/AirtestProject/Poco
 - https://airtest.netease.com/
+
+> Python on Mobile Phone
+
+- https://pyto.app/
+- https://github.com/ColdGrub1384/Pyto
 
 > 示例:
 
