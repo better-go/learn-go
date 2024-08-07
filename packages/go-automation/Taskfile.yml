@@ -1,0 +1,37 @@
+version: "3"
+
+includes:
+  ua:
+    aliases: [ "guia2" ]
+    taskfile: try-guia2/
+    dir: try-guia2/
+    optional: true
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  setup:
+    cmds:
+      - go install github.com/wailsapp/wails/v2/cmd/wails@latest
+      - wails
+      - wails doctor
+
+  run:
+    aliases: [ "r" ]
+    cmds:
+      - go mod init try-playwright
+      - go work use ./try-playwright
+    dir: ./try-playwright
+
+

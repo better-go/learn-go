@@ -1,0 +1,25 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  pkg:
+    cmds:
+      - go {{.CLI_ARGS}}
+
+  run:
+    aliases: [ "r" ]
+    cmds:
+      - go run main.go

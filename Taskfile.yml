@@ -11,6 +11,11 @@ includes:
     dir: ~/.local/task/better-sre/config # global path
     optional: true # safeguard, if not found, no error
 
+  auto:
+    aliases: [ "automation" ]
+    taskfile: packages/go-automation/
+    dir: packages/go-automation/
+
   gui:
     taskfile: packages/go-gui/
     dir: packages/go-gui

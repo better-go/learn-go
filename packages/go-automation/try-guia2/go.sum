@@ -1,0 +1,4 @@
+github.com/fantonglang/adbutils-go v0.0.0-20211229042000-4a10b0d4726b h1:9q2DmGuabH/hiGfrAAkuZfweHWlDP9+RTalp9ZFKbW0=
+github.com/fantonglang/adbutils-go v0.0.0-20211229042000-4a10b0d4726b/go.mod h1:Ght6gx2cUVRvrRP3g2+jW9Gn4YUUsV7AlkxHU689cwA=
+github.com/fantonglang/go-mobile-automation v0.0.0-20240627074436-f56c239f3355 h1:ucYdv9Imw4RnA6UdAeBRFX08wTMa3HlHaNwoBZ1hy4U=
+github.com/fantonglang/go-mobile-automation v0.0.0-20240627074436-f56c239f3355/go.mod h1:3f07rsIZ/tM9tgsp1ykfzBaY+uqxojP71Y8Wm3MmD/I=
