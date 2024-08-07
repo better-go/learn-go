@@ -9,6 +9,10 @@
 - https://github.com/topics/stf
 - https://github.com/topics/adb
 
+> QtScrcpy
+
+- https://github.com/barry-ran/QtScrcpy
+
 > 云手机
 
 - https://www.chinac.com/
@@ -23,10 +27,18 @@
 
 ### go
 
+> Android UIAutomator2
+
 - https://github.com/electricbubble/guia2
-- https://github.com/electricbubble/gwda
+- https://github.com/electricbubble/guia2-ext-opencv
 - https://github.com/trazyn/uiautomator-go
 - https://github.com/httprunner/httprunner
+
+> iOS Wda
+
+- https://github.com/electricbubble/gwda
+- https://github.com/electricbubble/gidevice
+- https://github.com/electricbubble/gidevice-cli
 
 ### python
 
@@ -44,6 +56,9 @@
 > 示例:
 
 - https://github.com/XRSec/tiktok_airtest
+- https://github.com/Sansui233/fgo-airtest
+- https://github.com/Pokerpoke/OnmyojiAutomation
+    - 阴阳师
 - https://github.com/wangshub/wechat_jump_game
 
 ### rust
