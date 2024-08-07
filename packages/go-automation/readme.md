@@ -31,6 +31,7 @@
 
 - https://github.com/electricbubble/guia2
 - https://github.com/electricbubble/guia2-ext-opencv
+- https://github.com/electricbubble/gadb
 - https://github.com/trazyn/uiautomator-go
 - https://github.com/httprunner/httprunner
 
